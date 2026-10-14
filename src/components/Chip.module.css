@@ -1,0 +1,22 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--accent-tint);
+  color: var(--accent-tint-text);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.chip:hover {
+  border-color: var(--text);
+}
+.selected {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--on-ink);
+}

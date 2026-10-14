@@ -1,51 +1,106 @@
-Topic: React TS
-Submission Date: 23 September 2026
-Time: 09:00 am
+# React Weather App
 
-Please submit by pushing to your github repository and creating a pull request to your mentor
+Task 4 - React Weather App (ReactTS). A weather app built with React, TypeScript and Vite that shows current conditions and forecasts for the user's location or any searched city, and remembers saved locations between visits.
 
-Title: ReactTS UI Challenge
+**Live site:** https://weather-katlego-nomsa.vercel.app
 
-Objective
-The objective of this task is to assess your understanding of ReactTS concepts and your ability to design and implement user interfaces (UI) using ReactTS components. In this challenge, you will be creating your own UI component from scratch, demonstrating your knowledge of React best practices, component structure, and reusability.
+**Repository:** https://github.com/katlego-nomsa/weather
 
-This is the official first task of the curriculum, based on React Lesson 2, focusing mainly on design implementation, styling and screen responsiveness.
+**Figma design:** (https://www.figma.com/design/ZQKzSGHvqYf8dshYyWF1hA/weather?node-id=0-1&p=f&t=nJAIRu2zJCtkX2V7-0)
 
-Choose one of the designs in the folder and implement the UI exactly as it is.
 
-Instructions:
-Create a vite ReactTS project in the directory
-Choose one of the files (design), delete the rest. (your repo should the design you have chosen).
-Using ReactTS, create a front-end implementation of the UI design.
-Pay close attention to the layout, colours, typography, and overall visual elements to ensure accurate replication.
-You may use your own icons, images, and typography that closely resemble those used in the UI design.
-Use appropriate ReactTS components and styling techniques to achieve the desired design.
-Implement interactivity and responsiveness (from mobile to desktop) where applicable.
-Test your implementation thoroughly to ensure proper functionality.
-Make sure all reappearing code is set up as reusable components to ensure readability and maintainability
-Host your work using Github pages , firebase or any hosting site of your choice.
+---
 
-Notes: 
-While replicating the design, focus on visual fidelity and user experience.
-Use your creativity to find icons, images, typography and colors (color codes) that closely resemble those used in the UI design.
-Apply your knowledge of ReactTS and front-end development best practices to accomplish the task.
-Make use of reusable components wherever possible.
-Feel free to use any additional libraries or tools that you are comfortable with.
-Be attentive to details and strive for accuracy in your implementation.
-Remember, the purpose of this task is to assess your ability to translate a design into a functional UI using ReactTS. If you have any questions or need clarification, please don't hesitate to reach out.
-Stick to plain CSS for styling
+## Features
 
-Evaluation Criteria:
-Accuracy of the design
-Was the design layout properly imitated
-Were the same colors maintained
-Were similar fonts to those in the design used
-Were all elements  imitated, is there an element on the design that’s missing on the implementation
-Page interactivity
-Do links change color when hovered over
-Do buttons change color when hovered over
-Utilisation of ReactTS features
-Did developer create own components
-Were developer-created components re-used for similar UI elements
-Responsiveness of the page
-Is the page responsive to different web view sizes
+- **Current weather:** temperature, humidity, wind speed and conditions
+- **Hourly and daily forecasts:** switch between the two views
+- **Location detection:** asks for permission to use your current location
+- **Search:** look up weather for any city
+- **Saved locations:** save several locations and switch between them
+- **Units:** switch between Celsius and Fahrenheit
+- **Themes:** customise the app's theme
+- **Weather alerts:** local notifications for severe weather
+- **Offline access:** cached weather data is shown when there is no connection
+- **Responsive:** works at 320px, 480px, 768px, 1024px and 1200px
+
+## Tech stack
+
+- React + TypeScript
+- Vite
+- React Router DOM v6
+- CSS Modules
+- Weather data from a third-party weather API (_add the API name here_)
+- `localStorage` for persistence
+- Deployed on Vercel
+
+## Getting started
+
+```bash
+git clone https://github.com/katlego-nomsa/weather.git
+cd weather
+git checkout Weather
+npm install
+npm run dev
+```
+
+Other scripts:
+
+```bash
+npm run build     # production build into dist/
+npm run preview   # preview the production build
+npm run lint      # run ESLint
+```
+
+## Project structure
+
+```
+src/
+  components/   Reusable UI components
+  context/      React context (shared app state)
+  hooks/        Custom hooks
+  pages/        Weather page, NotFound page
+  utils/        Helper functions
+  types.ts      Shared TypeScript types
+  App.tsx       Routes
+  main.tsx      Entry point
+public/         Static assets
+```
+
+## Step-by-step plan
+
+1. Design the screens in Figma (search page, weather page, settings).
+2. Write the pseudocode and algorithm before coding.
+3. Set up the Vite + React + TypeScript project and install React Router.
+4. Build the layout and reusable components.
+5. Connect to the weather API and display current conditions.
+6. Add search and geolocation.
+7. Add hourly and daily forecast views.
+8. Save locations, units and theme to `localStorage`.
+9. Cache the last response for offline use.
+10. Add severe weather notifications.
+11. Make the layout responsive and test at each breakpoint.
+12. Deploy to Vercel and test the live site.
+
+## Algorithm
+
+1. On load, read saved locations, units and theme from `localStorage`.
+2. If the user has no saved location, ask for permission to use their location.
+   - If granted, use the coordinates.
+   - If denied, show the search box.
+3. Request weather data for the active location from the API.
+4. If the request succeeds, display the data and store a copy in `localStorage` with a timestamp.
+5. If the request fails or the device is offline, display the cached copy and show an "offline" message.
+6. When the user searches for a city, look it up, fetch its weather and show the result. The user can save it to their locations.
+7. When the user switches location, units, theme or forecast view, update state and save the new setting.
+8. If the data contains a severe weather alert, show a notification (with the user's permission).
+
+## Privacy
+
+- The user's location is only used to request weather and is never sent anywhere other than the weather API.
+- Saved locations, units and theme are stored only in the user's browser (`localStorage`) and can be cleared at any time.
+- Location and notification access are only requested with the user's permission.
+
+## Author
+
+katlego-nomsa

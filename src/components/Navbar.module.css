@@ -1,0 +1,45 @@
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-4);
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text);
+  text-decoration: none;
+}
+.mark {
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid var(--text);
+  border-radius: 12px;
+  background: var(--accent);
+  transform: rotate(15deg);
+}
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+}
+.link {
+  padding: var(--space-2) 0;
+  border-bottom: 3px solid transparent;
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+}
+.link:hover {
+  border-bottom-color: var(--text);
+}
+.active {
+  border-bottom-color: var(--accent);
+}
