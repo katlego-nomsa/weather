@@ -1,0 +1,45 @@
+.disc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  margin-bottom: 16px;
+  border: 2px solid var(--text);
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--icon-on-accent);
+}
+.intro {
+  color: var(--muted);
+  line-height: 1.5;
+}
+.points {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+  padding: 16px 16px 16px 36px;
+  border-radius: 16px;
+  background: var(--accent-tint);
+  color: var(--accent-tint-text);
+  line-height: 1.4;
+}
+.error {
+  margin-bottom: 16px;
+  color: var(--danger);
+  font-weight: 700;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.actions > * {
+  flex: 1 1 180px;
+}
+.footnote {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 14px;
+}

@@ -1,0 +1,57 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+.option {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+.option:hover {
+  border-color: var(--text);
+}
+.selected {
+  border: 2px solid var(--text);
+  background: var(--accent-tint);
+}
+.preview {
+  position: relative;
+  display: block;
+  height: 96px;
+  border: 1.5px solid #111111;
+  border-radius: 12px;
+}
+.card {
+  position: absolute;
+  top: 14px;
+  left: 12px;
+  width: 56%;
+  height: 48px;
+  border: 1.5px solid #111111;
+  border-radius: 10px;
+}
+.bar {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  width: 30%;
+  height: 8px;
+  border-radius: 99px;
+}
+.name {
+  font-weight: 700;
+  text-align: left;
+}
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

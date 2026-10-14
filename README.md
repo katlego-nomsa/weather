@@ -1,51 +1,54 @@
-Topic: React TS
-Submission Date: 23 September 2026
-Time: 09:00 am
+# React + TypeScript + Vite
 
-Please submit by pushing to your github repository and creating a pull request to your mentor
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Title: ReactTS UI Challenge
+Currently, two official plugins are available:
 
-Objective
-The objective of this task is to assess your understanding of ReactTS concepts and your ability to design and implement user interfaces (UI) using ReactTS components. In this challenge, you will be creating your own UI component from scratch, demonstrating your knowledge of React best practices, component structure, and reusability.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-This is the official first task of the curriculum, based on React Lesson 2, focusing mainly on design implementation, styling and screen responsiveness.
+## Expanding the ESLint configuration
 
-Choose one of the designs in the folder and implement the UI exactly as it is.
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-Instructions:
-Create a vite ReactTS project in the directory
-Choose one of the files (design), delete the rest. (your repo should the design you have chosen).
-Using ReactTS, create a front-end implementation of the UI design.
-Pay close attention to the layout, colours, typography, and overall visual elements to ensure accurate replication.
-You may use your own icons, images, and typography that closely resemble those used in the UI design.
-Use appropriate ReactTS components and styling techniques to achieve the desired design.
-Implement interactivity and responsiveness (from mobile to desktop) where applicable.
-Test your implementation thoroughly to ensure proper functionality.
-Make sure all reappearing code is set up as reusable components to ensure readability and maintainability
-Host your work using Github pages , firebase or any hosting site of your choice.
+```js
+export default tseslint.config({
+  extends: [
+    // Remove ...tseslint.configs.recommended and replace with this
+    ...tseslint.configs.recommendedTypeChecked,
+    // Alternatively, use this for stricter rules
+    ...tseslint.configs.strictTypeChecked,
+    // Optionally, add this for stylistic rules
+    ...tseslint.configs.stylisticTypeChecked,
+  ],
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
+```
 
-Notes: 
-While replicating the design, focus on visual fidelity and user experience.
-Use your creativity to find icons, images, typography and colors (color codes) that closely resemble those used in the UI design.
-Apply your knowledge of ReactTS and front-end development best practices to accomplish the task.
-Make use of reusable components wherever possible.
-Feel free to use any additional libraries or tools that you are comfortable with.
-Be attentive to details and strive for accuracy in your implementation.
-Remember, the purpose of this task is to assess your ability to translate a design into a functional UI using ReactTS. If you have any questions or need clarification, please don't hesitate to reach out.
-Stick to plain CSS for styling
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-Evaluation Criteria:
-Accuracy of the design
-Was the design layout properly imitated
-Were the same colors maintained
-Were similar fonts to those in the design used
-Were all elements  imitated, is there an element on the design that’s missing on the implementation
-Page interactivity
-Do links change color when hovered over
-Do buttons change color when hovered over
-Utilisation of ReactTS features
-Did developer create own components
-Were developer-created components re-used for similar UI elements
-Responsiveness of the page
-Is the page responsive to different web view sizes
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default tseslint.config({
+  plugins: {
+    // Add the react-x and react-dom plugins
+    'react-x': reactX,
+    'react-dom': reactDom,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended typescript rules
+    ...reactX.configs['recommended-typescript'].rules,
+    ...reactDom.configs.recommended.rules,
+  },
+})
+```

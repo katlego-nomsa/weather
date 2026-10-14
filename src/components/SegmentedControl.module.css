@@ -1,0 +1,26 @@
+.group {
+  display: inline-flex;
+  padding: 4px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+}
+.option {
+  min-height: 44px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.option:hover {
+  background: var(--accent-tint);
+}
+.selected,
+.selected:hover {
+  background: var(--ink);
+  color: var(--on-ink);
+}
