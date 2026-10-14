@@ -3,7 +3,9 @@
 Task 4 - React Weather App (ReactTS). A weather app built with React, TypeScript and Vite that shows current conditions and forecasts for the user's location or any searched city, and remembers saved locations between visits.
 
 **Live site:** https://weather-katlego-nomsa.vercel.app
+
 **Repository:** https://github.com/katlego-nomsa/weather
+
 **Figma design:** (https://www.figma.com/design/ZQKzSGHvqYf8dshYyWF1hA/weather?node-id=0-1&p=f&t=nJAIRu2zJCtkX2V7-0)
 
 
